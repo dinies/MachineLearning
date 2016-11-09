@@ -15,7 +15,7 @@ class bysclf(object):
 		self.first_comp=first_comp
 		self.second_comp=second_comp
 		self.num_classes= len(objects)
-		self.images_path='/Users/edoardoghini/Pictures/coil-100/obj';
+		self.images_path='/Users/edoardoghini/Pictures/coil-100/obj'
 		
 
 
