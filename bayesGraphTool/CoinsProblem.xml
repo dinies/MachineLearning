@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIF VERSION="0.3"  xmlns="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3 http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3/XMLBIFv0_3.xsd">
+<NETWORK>
+<NAME>Untitled</NAME>
+<PROPERTY>detailed = </PROPERTY>
+<PROPERTY>short = </PROPERTY>
+
+<VARIABLE TYPE="nature">
+	<NAME>FirstThrow</NAME>
+	<OUTCOME>Tail</OUTCOME>
+	<OUTCOME>Head</OUTCOME>
+	<PROPERTY>position = (7285.0, 5364.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>SecondThrow</NAME>
+	<OUTCOME>Tail</OUTCOME>
+	<OUTCOME>Head</OUTCOME>
+	<PROPERTY>position = (7450.0, 5364.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>CoinChosen</NAME>
+	<OUTCOME>First</OUTCOME>
+	<OUTCOME>Second</OUTCOME>
+	<OUTCOME>Third</OUTCOME>
+	<PROPERTY>position = (7462.0, 5239.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>ThirdThrow</NAME>
+	<OUTCOME>Tail</OUTCOME>
+	<OUTCOME>Head</OUTCOME>
+	<PROPERTY>position = (7628.0, 5362.0)</PROPERTY>
+</VARIABLE>
+
+<DEFINITION>
+	<FOR>FirstThrow</FOR>
+	<GIVEN>CoinChosen</GIVEN>
+	<TABLE>0.8 0.2 0.4 0.6 0.2 0.8</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>SecondThrow</FOR>
+	<GIVEN>CoinChosen</GIVEN>
+	<TABLE>0.8 0.2 0.4 0.6 0.2 0.8</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>CoinChosen</FOR>
+	<TABLE>0.3333 0.3333 0.3334</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>ThirdThrow</FOR>
+	<GIVEN>CoinChosen</GIVEN>
+	<TABLE>0.8 0.2 0.4 0.6 0.2 0.8</TABLE>
+</DEFINITION>
+</NETWORK>
+</BIF>

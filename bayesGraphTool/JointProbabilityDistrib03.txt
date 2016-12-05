@@ -1,0 +1,3 @@
+P( tampering, fire, alarm, smoke, leaving, report)= 
+	P( tampering)* P( fire)* P(alarm| tampering,fire)* P(smoke| fire)* P(leaving| alarm)* P(report| leaving)
+	

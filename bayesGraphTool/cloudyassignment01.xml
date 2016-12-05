@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIF VERSION="0.3"  xmlns="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3 http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3/XMLBIFv0_3.xsd">
+<NETWORK>
+<NAME>Untitled</NAME>
+<PROPERTY>detailed = Joint probability function : 
+     P( Cloudy, Sprinklers, Rain,WetGrass) =
+
+     P( Cloudy ) P( Sprinklers| Cloudy) P( Rain| Cloudy) P( WetGrass| Sprinklers, Rain)
+</PROPERTY>
+<PROPERTY>short = Cloudy graph using Bayes model.
+</PROPERTY>
+
+<VARIABLE TYPE="nature">
+	<NAME>Cloudy</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7373.0, 5023.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Rain</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7467.0, 5179.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>Sprinklers</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7262.0, 5179.0)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>WetGrass</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7368.0, 5336.0)</PROPERTY>
+</VARIABLE>
+
+<DEFINITION>
+	<FOR>Cloudy</FOR>
+	<TABLE>0.5 0.5</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Rain</FOR>
+	<GIVEN>Cloudy</GIVEN>
+	<TABLE>0.8 0.2 0.1 0.9</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>Sprinklers</FOR>
+	<GIVEN>Cloudy</GIVEN>
+	<TABLE>0.4 0.6 0.9 0.1</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>WetGrass</FOR>
+	<GIVEN>Rain</GIVEN>
+	<GIVEN>Sprinklers</GIVEN>
+	<TABLE>0.99 0.01 0.9 0.1 0.9 0.1 0.0 1.0</TABLE>
+</DEFINITION>
+</NETWORK>
+</BIF>
