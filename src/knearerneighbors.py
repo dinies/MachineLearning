@@ -45,3 +45,5 @@ class knn(object):
 		pyplot.pcolormesh(xx, yy, Z, cmap=cmap_light)
 
 
+x= knn()      
+           
