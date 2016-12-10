@@ -10,7 +10,6 @@ from sklearn.cross_validation import train_test_split
 from sklearn.decomposition import PCA
 import numpy as np
 from matplotlib import colors, pyplot
-import math
 
 
 
@@ -27,9 +26,6 @@ def plot_boundaries(test_matrix,test_labels,neighbour_classifier,cmap):
     pyplot.pcolormesh(xx, yy, Z, cmap=cmap_light)
     pyplot.scatter(X[:,0],X[:,1],c=test_labels,cmap=cmap)
 
-def square_gaussian_distance(x,y,alfa=1):
-    cartesian_distance= math.sqrt( math.pow( ))
-    return math.exp( -alfa * math.pow(cartesian_distance))
     
 #parameters definition
 split_rate=0.4
@@ -42,7 +38,7 @@ iris = datasets.load_iris()
 X=iris.data
 y= iris.target
 #splitting into train and test
-X_train_not_std, X_test_not_std, y_train, y_test= train_test_split(X, y,test_size=split_rate,random_state=23)
+X_train_not_std, X_test_not_std, y_train, y_test= train_test_split(X, y,test_size=split_rate,random_state=90)
 #standardizing dataset 
 X_scaler = preprocessing.StandardScaler()
 X_train = X_scaler.fit_transform(X_train_not_std)
@@ -81,16 +77,16 @@ clf.fit(X_train_pca, y_train)
 #boundaries
 plot_boundaries(X_test_pca,y_test,clf,cmap_light)
 
-
-'''
-#square_distance_gaussian weights
-
-def square_gaussian_distance(x,y,alfa=1):
+for alfa in [0.1,10,100,1000]:
     
-weights= 'distance'**2
-#training
-clf= neighbors.KNeighborsClassifier(n_neighbors=3,weights=weights)
-clf.fit(X_train_pca, y_train)
-#boundaries
-plot_boundaries(X_test_pca,y_test,clf,cmap_light)
-'''
+
+    #square_distance_gaussian weights
+    def square_gaussian_distance(distance):
+        np.exp(  - 0.1 * alfa * distance** 2)
+    #training
+    clf= neighbors.KNeighborsClassifier(n_neighbors=3,weights=square_gaussian_distance)
+    clf.fit(X_train_pca, y_train)
+    #boundaries
+    print ("alfa",alfa)
+    print('score',clf.score(X_test_pca, y_test))
+    plot_boundaries(X_test_pca,y_test,clf,cmap_light)
