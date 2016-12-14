@@ -20,7 +20,7 @@ class polinomialexpander(object):
         self.y_test= np.load('regressionDataset/regression_ytest.npy')
         
     def do(self):
-        '''
+        
         #plotting data sets
         plt.figure()
         plt.scatter(self.X_train,self.y_train)
@@ -28,14 +28,16 @@ class polinomialexpander(object):
         plt.figure()
         plt.scatter(self.X_test,self.y_test)
         plt.show()
-        '''
+        
         #standardizing datasets
         X_scaler = prepro.StandardScaler()
         X_train = X_scaler.fit_transform(self.X_train.reshape(-1,1))
         X_test = X_scaler.transform(self.X_test.reshape(-1,1))
-        y_scaler = prepro.StandardScaler()
-        y_train = y_scaler.fit_transform(self.y_train[:, None])[:, 0]
-        y_test = y_scaler.transform(self.y_test[:, None])[:, 0]
+        #y_scaler = prepro.StandardScaler()
+        y_train = self.y_train 
+        #y_scaler.fit_transform(self.y_train[:, None])[:, 0]
+        y_test = self.y_test
+        #y_scaler.transform(self.y_test[:, None])[:, 0]
         '''
         #plotting data after standardization
         plt.figure()
@@ -90,8 +92,10 @@ class polinomialexpander(object):
         print ('mse',mean_square_error)
         '''
         #ranged polinomial expansion
+        x_axis=[]
+        y_axis=[]
         models={}
-        for i in range(1,11):
+        for i in range(1,10):
             #polinomial expansion
             poly=prepro.PolynomialFeatures(i)
             X_poli_train= poly.fit_transform(X_train,y_train)
@@ -105,7 +109,23 @@ class polinomialexpander(object):
             for index in range(len(predicted)):
                 inc += math.pow(y_test[index]-predicted[index],2)
             mse = inc/len(predicted)
+            
+            x_axis.append(i)
+            y_axis.append(mse)
             models[i]= {'X':X_poli_train, 'mse':mse}
+            #plot for the particular polinomial
+            x_range = np.linspace(-2,2, 100)
+            predicted = lr.predict(poly.fit_transform(x_range.reshape(-1,1)))
+            #plotting results
+            plt.figure()
+            plt.plot(x_range.reshape(-1,1), predicted)
+            plt.scatter(X_test.reshape(-1,1),y_test, c='r')
+            plt.show()
+            plt.title("polinomial of order "+ str(i)+" with mse "+ str(mse) )
+        #plot mse for polinomial
+        plt.figure()
+        plt.plot(x_axis,y_axis)
+        plt.title("various mse with grade variation of polinomial")
         #check for the model with minimum mse
         min_mse_index=1
         for key in models.keys():
@@ -123,7 +143,7 @@ class polinomialexpander(object):
         plt.plot(x_range.reshape(-1,1), predicted)
         plt.scatter(X_test.reshape(-1,1),y_test, c='r')
         plt.show()
-        print("mean square error", models[min_mse_index]['mse'], "with polynomial expansion of order", min_mse_index)
+        plt.title("mean square error"+ str(float(models[min_mse_index]['mse']))+ "with polynomial expansion of order"+ str(min_mse_index))
                     
             
             
