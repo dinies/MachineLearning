@@ -17,7 +17,7 @@ import numpy as np
 #parameters definition
 split_rate_test=0.5
 split_test_over_validation= 0.6
-cmap_light = colors.ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
+cmap_light = colors.ListedColormap(['#C71585', '#FF7F50', '#40E0D0'])
 
 
 

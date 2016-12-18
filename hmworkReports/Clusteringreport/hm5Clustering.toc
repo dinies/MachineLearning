@@ -1,0 +1,13 @@
+\contentsline {part}{I\hspace {1em}Introduction}{1}
+\contentsline {section}{\numberline {1}Scope}{1}
+\contentsline {section}{\numberline {2}Objectives}{1}
+\contentsline {part}{II\hspace {1em}Development}{2}
+\contentsline {section}{\numberline {3}Data Manipulations}{2}
+\contentsline {section}{\numberline {4}Clusterization}{2}
+\contentsline {subsection}{\numberline {4.1}Kmeans}{2}
+\contentsline {subsubsection}{\numberline {4.1.1}Execution}{2}
+\contentsline {subsubsection}{\numberline {4.1.2}Score Analysis}{3}
+\contentsline {subsection}{\numberline {4.2}GMM}{3}
+\contentsline {subsubsection}{\numberline {4.2.1}Execution}{3}
+\contentsline {subsubsection}{\numberline {4.2.2}Score Analysis}{5}
+\contentsline {part}{III\hspace {1em}Conclusions}{6}

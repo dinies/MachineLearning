@@ -56,7 +56,7 @@
 			
 		
 			
-			\title{Machine Learning: Third Home Work \\ \bigskip \large  KN Neighbors}
+			\title{Machine Learning: Sixth Home Work \\ \bigskip \large Bayesian Networks}
 
 			\author{Edoardo Ghini}
 			
@@ -152,168 +152,81 @@
 			\part{Introduction}
 			
 				\section{Scope}
-This experience was focused on the comprehension of the theoretic concepts around the classification through KNN algorithm.  
+I was supposed to familiarise with bayesian networks used in stochastic modelling. 
 				\section{Objectives}
-				The overall assignment was about performing  a classification task on data in fig(1) experimenting various parameters of the KNN classifier like the number of neighbours considered and also experimenting variations about the metric used to compute the distances between points.
-				
-				\begin{center}
+				Learning to model graph-like networks with a Bayesian approach for three different cases.
+
+\newpage
+			\part{Development}
+				\section{First case}
+\begin{center}	
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{figure_1}
+\includegraphics[width=0.9\textwidth]{fig1}
 \caption{}
 \label{fig:1}
 \end{figure}
 \end{center}
 
-\newpage
-			\part{Development}
-				\section{Data Manipulations}
-	
-	At first, I loaded the Iris dataset and I standardised the input data. After that, I applied a principal component analysis as common practice to maximise the variance carried from selected data.
-	Finally I divided data in test and train subsets.
-	
-	
-	
+I have built a model that represents the conditional bounds between stochastic atoms.
+In particular, in fig(1), there is the graphical model that corresponds to the following joint probability distribution: 
+\medskip
+P( Cloudy, Sprinklers, Rain,WetGrass) = P( Cloudy ) P( Sprinklers| Cloudy) P( Rain| Cloudy) P( WetGrass| Sprinklers, Rain)
+\smallskip
+In fig(2) there is also the result, according to the conditional probability, after that two observations have been made.
 
-				\section{Classification}
-				As shown in these plots, I performed  the classification of a KNN model with parameters which define the number of neighbours that it would take into consideration assigning the class to new data. This process has been iterated for ten times.
-								\begin{center}
-				\begin{figure}
+\begin{center}	
+\begin{figure}
 \centering
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_2}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_3}
-        \end{subfigure}\hfill
- \label{fig:2}
- \end{figure}
-       
+\includegraphics[width=0.9\textwidth]{fig2}
+\caption{}
+\label{fig:2}
+\end{figure}
+\end{center}
+
+				\section{Second case}
+				Then I build a model in order to reconstruct the probability distribution of a random coin extraction between three differently weighted coins in terms of probabilities between head and tail outcomes.
+				In fig(3), given a prior knowledge on three trows made with a unique coin, there is the guess of the bayesian network on which coin has been extracted. 
+\begin{center}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{fig3}
+\caption{}
+\label{fig:3}
+\end{figure}
+\end{center}
+
+
+				\section{Third case}
+Finally, the last assignment consisted of a modification of an already finished model that describes probabilities of events after that a fire alarm goes on.
+Essentially, I added a branch to the graph linking two nodes: the former was the node which symbolises  that the alarm has gone off, the latter was a new node which represents the probability that someone could call their mother.
+Accordingly, in fig(4), there is the modified bayesian network corresponding to the joint probabilty distribution written above: 
+\medskip
+P( tampering, fire, alarm, smoke, leaving, report)=
+\smallskip 
+	P( tampering)* P( fire)* P(alarm| tampering,fire)* P(smoke| fire)* P(leaving| alarm)* P(report| leaving)
+
+\begin{center}
 \begin{figure}
 \centering  
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\linewidth]{figure_4}
+                \includegraphics[width=\linewidth]{fig4}
         \end{subfigure}\hfill
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\linewidth]{figure_5}
+                \includegraphics[width=\linewidth]{fig5}
         \end{subfigure}
-        \label{fig:3}
-\end{figure}
-
-\begin{figure}
-\centering
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_6}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_7}
-        \end{subfigure}\hfill
         \label{fig:4}
- \end{figure}
-       
-\begin{figure}
-\centering  
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_8}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_9}
-        \end{subfigure}
-        \label{fig:5}
 \end{figure}
-
-\begin{figure}
-\centering  
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_10}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_11}
-        \end{subfigure}
-        \label{fig:6}
-\end{figure}
-\end{center}			 
-				
-				
-				
-				
+\end{center}		
 
 
-				\section{Score Analysis}
-				
-				In this particular case, with this particular train and test dataset, the best classifier is a KNN that take into consideration three neighbours (fig(7)).
-								\begin{center}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{figure_12}
-\caption{}
-\label{fig:7}
-\end{figure}
-\end{center}
-
-				\section{Weights of the Metric}
-				By the time, when the best K parameter was found, I tested the classification with two different weight types for distance calculation: in fig(8) is shown the behaviour of weights that consider the euclidean distance between points, instead in fig(9) there is the result due to the adoption of uniform weights so the classification is made on the absolute number of neighbours regardless their distances from the data point that is being classified. 
-								\begin{center}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{figure_13}
-\caption{}
-\label{fig:8}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{figure_14}
-\caption{}
-\label{fig:9}
-\end{figure}
-\end{center}
-				\section{Gaussian Distance Metric}
-				Finally I implemented a function on my own in order to compute the distance in a non linear way. These shown below are the results of the classification with the respect of this new metric with different alfa coefficients that affect the steepness of the gaussian function, as it can be seen, in particular, in the last plot with a huge value for alfa
-								\begin{center}
-				\begin{figure}
-\centering  
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_15}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_16}
-        \end{subfigure}
-        \label{fig:10}
-\end{figure}
-
-\begin{figure}
-\centering  
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_17}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_18}
-        \end{subfigure}
-        \label{fig:11}
-\end{figure}
-\end{center}
-
-				
+	
 \newpage
 			\part{Conclusions}
 				
-			At the end, collecting the scores of the various classifications, It turned out that for this dataset, the best score around ninety per cent has been achieved with small values of the alfa coefficient.  
+In the final analysis bayesian network approach could be extremely powerful in order to visualise and understand the stochastic representation of complex scenarios. On the other hand, when there would be plenty of conditional dependencies among the nodes, it become a disorienting representation 
+
 			
 		\end{document}

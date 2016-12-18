@@ -56,7 +56,7 @@
 			
 		
 			
-			\title{Machine Learning: Third Home Work \\ \bigskip \large  KN Neighbors}
+			\title{Machine Learning: Fourth Home Work \\ \bigskip \large Support Vector Machines}
 
 			\author{Edoardo Ghini}
 			
@@ -152,139 +152,127 @@
 			\part{Introduction}
 			
 				\section{Scope}
-This experience was focused on the comprehension of the theoretic concepts around the classification through KNN algorithm.  
+This time the aim of the assignment has been to comprehend the concept behind the classification through Support Vector Machines
 				\section{Objectives}
-				The overall assignment was about performing  a classification task on data in fig(1) experimenting various parameters of the KNN classifier like the number of neighbours considered and also experimenting variations about the metric used to compute the distances between points.
 				
-				\begin{center}
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{figure_1}
-\caption{}
-\label{fig:1}
-\end{figure}
-\end{center}
+				For the purpose of understanding SVM algorithm and theory, it will be executed a classification task with, at first, a linear SVM, and then with a non-linear one in order to proof that non-linearity brings better scores because of more flexible classification boundaries. At the end I will have to validate and test the performances of the classifier with a K-fold approach.
 
 \newpage
 			\part{Development}
 				\section{Data Manipulations}
-	
-	At first, I loaded the Iris dataset and I standardised the input data. After that, I applied a principal component analysis as common practice to maximise the variance carried from selected data.
-	Finally I divided data in test and train subsets.
-	
+	At the beginning, after that the first two vectors of a dataset had been loaded, I obtained a separation in train, validation and test data.	
 	
 	
 
-				\section{Classification}
-				As shown in these plots, I performed  the classification of a KNN model with parameters which define the number of neighbours that it would take into consideration assigning the class to new data. This process has been iterated for ten times.
+				\section{Linear SVM}
+				\subsection{Theory pills}
+				As shown in these figures, I have started with a lineal model that, being a SVM classifier, maximises the distance between the first points of two different classes and the decision linear function.
+				This maximum problem tries to find the greatest area in the data space that can be considered neutral between two data point concentrations. There is also a coefficient ( C ) that allows a different weighting of the penalty for missclassification.
+				
 								\begin{center}
 				\begin{figure}
 \centering
+        \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\linewidth]{figure_1}
+        \end{subfigure}\hfill
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{figure_2}
         \end{subfigure}\hfill
+ \label{fig:1}
+ \end{figure}
+       
+\begin{figure}
+\centering  
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{figure_3}
         \end{subfigure}\hfill
- \label{fig:2}
- \end{figure}
-       
-\begin{figure}
-\centering  
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{figure_4}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_5}
         \end{subfigure}
-        \label{fig:3}
+        \label{fig:2}
 \end{figure}
 
 \begin{figure}
 \centering
+        \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\linewidth]{figure_5}
+        \end{subfigure}\hfill
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{figure_6}
         \end{subfigure}\hfill
+        \label{fig:3}
+ \end{figure}
+       
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{figure_7}
+\caption{}
+\label{fig:4}
+\end{figure}
+\end{center}
+
+\subsection{Validation and Test phases}
+				The aforementioned figures have been generated with different values of C.
+				In fig(5), it can be seen that for this dataset the best performances on the validation sets where obtained with a C parameters equal to 100.
+\begin{center}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{figure_8}
+\caption{}
+\label{fig:5}
+\end{figure}
+\end{center}
+				Correspondingly, in fig(6), we can see how this model performs on test data.
+\begin{center}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{figure_9}
+\caption{}
+\label{fig:6}
+\end{figure}
+\end{center}
+\newpage
+				
+\section{Non-linear SVM}
+\subsection{Training with C and gamma}
+	Similarly, I repeated the same procedure with a Radial Basis Function Kernel. In practice, the model can decide smoother boundaries for data classification because of the kernel operation applied on the data in order to bring non-linearity.
+	These figures are the results of a RBF SVM on the dataset with different values for C parameter. 
+				
+												\begin{center}
+				\begin{figure}
+\centering
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\linewidth]{figure_7}
+                \includegraphics[width=\linewidth]{figure_11}
         \end{subfigure}\hfill
-        \label{fig:4}
+        \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\linewidth]{figure_12}
+        \end{subfigure}\hfill
+ \label{fig:7}
  \end{figure}
        
 \begin{figure}
 \centering  
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\linewidth]{figure_8}
+                \includegraphics[width=\linewidth]{figure_13}
         \end{subfigure}\hfill
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\linewidth]{figure_9}
+                \includegraphics[width=\linewidth]{figure_14}
         \end{subfigure}
-        \label{fig:5}
-\end{figure}
-
-\begin{figure}
-\centering  
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_10}
-        \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_11}
-        \end{subfigure}
-        \label{fig:6}
-\end{figure}
-\end{center}			 
-				
-				
-				
-				
-
-
-				\section{Score Analysis}
-				
-				In this particular case, with this particular train and test dataset, the best classifier is a KNN that take into consideration three neighbours (fig(7)).
-								\begin{center}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{figure_12}
-\caption{}
-\label{fig:7}
-\end{figure}
-\end{center}
-
-				\section{Weights of the Metric}
-				By the time, when the best K parameter was found, I tested the classification with two different weight types for distance calculation: in fig(8) is shown the behaviour of weights that consider the euclidean distance between points, instead in fig(9) there is the result due to the adoption of uniform weights so the classification is made on the absolute number of neighbours regardless their distances from the data point that is being classified. 
-								\begin{center}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{figure_13}
-\caption{}
-\label{fig:8}
+        \label{fig:8}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\textwidth]{figure_14}
-\caption{}
-\label{fig:9}
-\end{figure}
-\end{center}
-				\section{Gaussian Distance Metric}
-				Finally I implemented a function on my own in order to compute the distance in a non linear way. These shown below are the results of the classification with the respect of this new metric with different alfa coefficients that affect the steepness of the gaussian function, as it can be seen, in particular, in the last plot with a huge value for alfa
-								\begin{center}
-				\begin{figure}
-\centering  
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{figure_15}
@@ -292,28 +280,63 @@ This experience was focused on the comprehension of the theoretic concepts aroun
         \begin{subfigure}[b]{0.48\textwidth}
                 \centering
                 \includegraphics[width=\linewidth]{figure_16}
-        \end{subfigure}
-        \label{fig:10}
-\end{figure}
-
-\begin{figure}
-\centering  
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_17}
         \end{subfigure}\hfill
-        \begin{subfigure}[b]{0.48\textwidth}
-                \centering
-                \includegraphics[width=\linewidth]{figure_18}
-        \end{subfigure}
-        \label{fig:11}
+        \label{fig:9}
+ \end{figure}
+\end{center}
+\subsection{First scores}
+				As shown in fig(10) the model, identically to the linear experiment, behaves better. with high values of C. In particular, in fig(11) there is the plot of the SVM that has performed better on validation dataset.
+				\begin{center}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{figure_17}
+\caption{}
+\label{fig:10}
 \end{figure}
 \end{center}
 
+				\begin{center}
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{figure_18}
+\caption{}
+\label{fig:11}
+\end{figure}
+\end{center}
+
+\newpage
+
+\subsection{Grid search with K-fold validation}
+In order to chose the best classifier parameters, as shown in \ref{kfold} I merged together train and validation datasets and I set up an iterator that will be used to perform a k-fold validation.
+ Subsequently, I managed to build up a grid search to find the best parameter combination of C and gamma.
+ 							\begin{lstlisting}[caption= Kfold wihin a grid search, label=kfold]
+X_train_merged, X_test_merged, y_train_merged, y_test_merged= train_test_split(X, y,  test_size=split_rate_merged, random_state=20)
+
+C_range = np.logspace(-3, 6, 10)
+gamma_range = np.logspace(-6, 3, 10)
+param_grid = dict(gamma=gamma_range, C=C_range)
+cv = StratifiedShuffleSplit(n_splits=5, test_size=0.2, random_state=42)
+grid = GridSearchCV(SVC(), param_grid=param_grid, cv=cv)
+grid.fit(X_train_merged, y_train_merged)
+\end{lstlisting}
+
+
+ Gamma parameter seems to modify the way in which the classifier consider the significance of a data point according to his distance from the classification separator.
 				
+								\begin{center}
+
+	
 \newpage
 			\part{Conclusions}
 				
-			At the end, collecting the scores of the various classifications, It turned out that for this dataset, the best score around ninety per cent has been achieved with small values of the alfa coefficient.  
+To sum up, in fig(12) is shown how a smart choice of parameters, in the case of a RBF classifier, C and gamma, could improve the score quality of the model.\medskip\\
+This particular model with C =100 and gamma = 1 has performed a score of 0.86 on the validation set and of 0.68 on the merged set with further reliability due to the 5-fold validation.
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{figure_19}
+\caption{}
+\label{fig:12}
+\end{figure}
+\end{center}
 			
 		\end{document}

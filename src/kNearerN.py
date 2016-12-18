@@ -33,7 +33,7 @@ def plot_boundaries(test_matrix,test_labels,neighbour_classifier,cmap,title):
 split_rate=0.4
 pca_param=2
 num_neighbors=40
-cmap_light = colors.ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
+cmap_light = colors.ListedColormap(['#C71585', '#FF7F50', '#40E0D0'])
 
 #loading data sets
 iris = datasets.load_iris()
@@ -52,7 +52,7 @@ X_test_pca=PCA(pca_param).fit_transform(X_test)
 #plot of training data
 pyplot.figure()
 pyplot.scatter(X_train_pca[:,0],X_train_pca[:,1],c=y_train,cmap=cmap_light)
-    
+pyplot.title("Iris dataset")
 #iteration of different values for neighbors
 scores=[]
 for i in range(1,11):
