@@ -1,0 +1,10 @@
+Es 1. Cloudy graph using Bayes model.
+
+Joint probability function : P( Cloudy, Sprinklers, Rain,WetGrass) = P( Cloudy ) P( Sprinklers| Cloudy) P( Rain| Cloudy) P( WetGrass| Sprinklers, Rain)
+
+es 3.  Call their mother
+
+
+P( tampering, fire, alarm, smoke, leaving, report)= 
+	P( tampering)* P( fire)* P(alarm| tampering,fire)* P(smoke| fire)* P(leaving| alarm)* P(report| leaving)
+	

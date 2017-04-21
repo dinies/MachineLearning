@@ -1,0 +1,3 @@
+http://stackoverflow.com/questions/37626043/sklearn-knn-usage-with-a-user-defined-metric-again
+
+http://stackoverflow.com/questions/21052509/sklearn-knn-usage-with-a-user-defined-metric
