@@ -1,0 +1,17 @@
+SKYMIND talk
+
+Deeeplearning4J     model import
+
+ND4J (samediff)				jumpy
+
+Datavec				scalnet
+
+arbiter				ND4S
+
+RL4j
+
+ 
+
+
+
+CNTK ?
